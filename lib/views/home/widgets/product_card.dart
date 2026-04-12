@@ -22,21 +22,24 @@ class _ProductCardState extends State<ProductCard> {
       onEnter: (_) => setState(() => isHovered = true),
       onExit: (_) => setState(() => isHovered = false),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 400),
         curve: Curves.easeOutCubic,
-        transform: Matrix4.identity()..scale(isHovered ? 1.05 : 1.0),
+        transform: Matrix4.identity()
+          ..setEntry(3, 2, 0.001) // Perspective
+          ..rotateX(isHovered ? -0.1 : 0) // Slight tilt back
+          ..scale(isHovered ? 1.05 : 1.0),
         decoration: BoxDecoration(
           color: const Color(0xFF141414),
           border: Border.all(
-            color: isHovered ? const Color(0xFFE50914) : Colors.transparent,
-            width: 2,
+            color: isHovered ? const Color(0xFFE50914) : Colors.white.withOpacity(0.05),
+            width: isHovered ? 2 : 1,
           ),
           boxShadow: isHovered
               ? [
                   BoxShadow(
-                    color: const Color(0xFFE50914).withOpacity(0.3),
-                    blurRadius: 20,
-                    spreadRadius: 2,
+                    color: const Color(0xFFE50914).withOpacity(0.2),
+                    blurRadius: 30,
+                    spreadRadius: 5,
                   ),
                 ]
               : [],

@@ -69,9 +69,10 @@ class FeaturedSection extends StatelessWidget {
                 itemCount: products.length,
                 itemBuilder: (context, index) {
                   return ProductCard(product: products[index])
-                      .animate(delay: (100 * index).ms)
-                      .slideY(begin: 0.2, end: 0, duration: 400.ms)
-                      .fadeIn();
+                      .animate(delay: (200 * index).ms)
+                      .fadeIn(duration: 800.ms)
+                      .slideY(begin: 0.5, end: 0, curve: Curves.easeOutBack, duration: 800.ms)
+                      .flipV(begin: -0.5, end: 0, perspective: 1, duration: 800.ms);
                 },
               );
             },
