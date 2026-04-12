@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: '5SLIVE',
+      title: 'DCOP',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTheme,
       home: const HomeView(),

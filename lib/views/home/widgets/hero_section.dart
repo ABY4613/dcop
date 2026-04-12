@@ -43,7 +43,7 @@ class HeroSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                      '5SLIVE',
+                      'DCOP',
                       style: GoogleFonts.outfit(
                         fontSize: 24,
                         letterSpacing: 8,

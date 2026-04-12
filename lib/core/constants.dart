@@ -11,7 +11,7 @@ class AppConstants {
       id: '1',
       name: 'Essential Oversized Black',
       description:
-          'Premium heavyweight cotton oversized t-shirt with classic 5SLIVE logo.',
+          'Premium heavyweight cotton oversized t-shirt with classic DCOP logo.',
       price: 45.00,
       imageUrl:
           'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',

@@ -19,7 +19,7 @@ class CustomAppbar extends StatelessWidget {
           Row(
             children: [
               Text(
-                '5S',
+                'DC',
                 style: GoogleFonts.outfit(
                   fontSize: 28,
                   fontWeight: FontWeight.w900,
@@ -27,7 +27,7 @@ class CustomAppbar extends StatelessWidget {
                 ),
               ).animate().shimmer(duration: 1500.ms, delay: 500.ms),
               Text(
-                'LIVE',
+                'OP',
                 style: GoogleFonts.outfit(
                   fontSize: 28,
                   fontWeight: FontWeight.w900,

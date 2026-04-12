@@ -101,7 +101,7 @@ class HomeView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '5SLIVE',
+                      'DCOP',
                       style: const TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.w900,
@@ -170,7 +170,7 @@ class HomeView extends StatelessWidget {
           Divider(color: Colors.white.withOpacity(0.1)),
           const SizedBox(height: 32),
           const Text(
-            '© 2026 5SLIVE. All rights reserved.',
+            '© 2026 DCOP. All rights reserved.',
             style: TextStyle(color: Colors.white54, fontSize: 14),
           ),
         ],
