@@ -61,7 +61,7 @@ class CustomAppbar extends StatelessWidget {
               ),
               const SizedBox(width: 16),
               Obx(() {
-                final count = Get.find<HomeController>().cartCount.value;
+                final count = Get.find<HomeController>().cartCount;
                 return Stack(
                   children: [
                       IconButton(
