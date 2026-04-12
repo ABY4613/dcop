@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../controllers/home_controller.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import '../../cart/cart_view.dart';
+import '../../about/about_view.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({Key? key}) : super(key: key);
@@ -126,7 +127,13 @@ class CustomAppbar extends StatelessWidget {
 
   Widget _navItem(String title) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        if (title == 'ABOUT') {
+          Get.to(() => const AboutView());
+        } else if (title == 'HOME') {
+          Get.offAllNamed('/'); // Or simple Get.back() if applicable
+        }
+      },
       child: Text(
         title,
         style: GoogleFonts.outfit(

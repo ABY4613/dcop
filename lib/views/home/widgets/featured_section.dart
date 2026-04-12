@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import '../../../models/product.dart';
@@ -32,7 +34,8 @@ class FeaturedSection extends StatelessWidget {
                 ),
               ).animate().slideX(begin: -0.1, duration: 600.ms).fadeIn(),
               TextButton(
-                onPressed: () => Get.to(() => ProductListView(categoryName: title)),
+                onPressed: () =>
+                    Get.to(() => ProductListView(categoryName: title)),
                 style: TextButton.styleFrom(
                   foregroundColor: const Color(0xFFE50914),
                 ),
