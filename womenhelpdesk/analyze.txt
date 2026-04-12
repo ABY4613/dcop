@@ -1,0 +1,6 @@
+﻿Analyzing womenhelpdesk...                                      
+
+   info - Don't invoke 'print' in production code - lib\main.dart:25:5 - avoid_print
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\views\guardian\add_guardian.dart:60:35 - use_build_context_synchronously
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\views\home\sos_button.dart:63:41 - deprecated_member_use
+
