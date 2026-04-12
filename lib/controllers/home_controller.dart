@@ -5,7 +5,10 @@ import '../core/constants.dart';
 
 class HomeController extends GetxController {
   var isLoading = true.obs;
-  var cartCount = 0.obs;
+  var cartItems = <Product>[].obs;
+
+  int get cartCount => cartItems.length;
+  double get totalAmount => cartItems.fold(0, (sum, item) => sum + item.price);
 
   List<Product> get featuredProducts =>
       AppConstants.dummyProducts.where((p) => p.isFeatured).toList();
@@ -26,18 +29,22 @@ class HomeController extends GetxController {
     isLoading.value = false;
   }
 
-  void addToCart() {
-    cartCount.value++;
-    // Show a quick snackbar here using Get
+  void addToCart(Product product) {
+    cartItems.add(product);
     Get.snackbar(
       'Added to Cart',
-      'Item has been added to your shopping cart.',
+      '${product.name} added to your cart.',
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: const Color(0xFFE50914),
-      colorText: const Color(0xFFFFFFFF),
+      colorText: Colors.white,
       duration: const Duration(seconds: 2),
       margin: const EdgeInsets.all(16),
-      borderRadius: 4,
+      borderRadius: 0,
+      icon: const Icon(Icons.shopping_bag, color: Colors.white),
     );
+  }
+
+  void removeFromCart(Product product) {
+    cartItems.remove(product);
   }
 }

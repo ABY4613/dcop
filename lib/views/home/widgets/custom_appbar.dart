@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../controllers/home_controller.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import '../cart/cart_view.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({Key? key}) : super(key: key);
@@ -63,13 +64,13 @@ class CustomAppbar extends StatelessWidget {
                 final count = Get.find<HomeController>().cartCount.value;
                 return Stack(
                   children: [
-                    IconButton(
+                      IconButton(
                       icon: const Icon(
                         FontAwesomeIcons.bagShopping,
                         color: Colors.white,
                         size: 20,
                       ),
-                      onPressed: () {},
+                      onPressed: () => Get.to(() => const CartView()),
                     ),
                     if (count > 0)
                       Positioned(

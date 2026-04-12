@@ -76,7 +76,7 @@ class _ProductCardState extends State<ProductCard> {
                         child:
                             ElevatedButton(
                               onPressed: () {
-                                Get.find<HomeController>().addToCart();
+                                Get.find<HomeController>().addToCart(widget.product);
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFFE50914),
