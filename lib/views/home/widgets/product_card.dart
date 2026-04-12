@@ -1,3 +1,4 @@
+import 'package:dcop/views/details/product_detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -5,8 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
 import '../../../models/product.dart';
 import '../../../controllers/home_controller.dart';
-
-import '../details/product_detail_view.dart';
 
 class ProductCard extends StatefulWidget {
   final Product product;
@@ -78,23 +77,27 @@ class _ProductCardState extends State<ProductCard> {
                       Container(
                         color: Colors.black.withOpacity(0.4),
                         child: Center(
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 24,
-                              vertical: 12,
-                            ),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white, width: 2),
-                            ),
-                            child: const Text(
-                              'VIEW DETAILS',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 2,
-                              ),
-                            ),
-                          ).animate().scale(
+                          child:
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 24,
+                                  vertical: 12,
+                                ),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 2,
+                                  ),
+                                ),
+                                child: const Text(
+                                  'VIEW DETAILS',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 2,
+                                  ),
+                                ),
+                              ).animate().scale(
                                 duration: 200.ms,
                                 curve: Curves.easeOutBack,
                               ),
