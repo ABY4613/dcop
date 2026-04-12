@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../about/about_view.dart';
+import '../shop/shop_view.dart';
+import '../collections/collections_view.dart';
 import '../../../controllers/home_controller.dart';
 import '../shared/animated_loader.dart';
 import 'widgets/custom_appbar.dart';
@@ -214,8 +216,8 @@ class HomeView extends StatelessWidget {
             ),
           ),
           _drawerItem(FontAwesomeIcons.house, 'HOME', () => Get.back()),
-          _drawerItem(FontAwesomeIcons.tag, 'SHOP', () {}),
-          _drawerItem(FontAwesomeIcons.layerGroup, 'COLLECTIONS', () {}),
+          _drawerItem(FontAwesomeIcons.tag, 'SHOP', () => Get.to(() => const ShopView())),
+          _drawerItem(FontAwesomeIcons.layerGroup, 'COLLECTIONS', () => Get.to(() => const CollectionsView())),
           _drawerItem(FontAwesomeIcons.circleInfo, 'ABOUT', () => Get.to(() => const AboutView())),
           const Spacer(),
           Padding(

@@ -6,6 +6,8 @@ import '../../../controllers/home_controller.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import '../../cart/cart_view.dart';
 import '../../about/about_view.dart';
+import '../../shop/shop_view.dart';
+import '../../collections/collections_view.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({Key? key}) : super(key: key);
@@ -131,7 +133,11 @@ class CustomAppbar extends StatelessWidget {
         if (title == 'ABOUT') {
           Get.to(() => const AboutView());
         } else if (title == 'HOME') {
-          Get.offAllNamed('/'); // Or simple Get.back() if applicable
+          Get.offAllNamed('/'); 
+        } else if (title == 'SHOP') {
+          Get.to(() => const ShopView());
+        } else if (title == 'COLLECTIONS') {
+          Get.to(() => const CollectionsView());
         }
       },
       child: Text(
