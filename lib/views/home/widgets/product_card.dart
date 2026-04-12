@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import '../../../models/product.dart';
 import '../../../controllers/home_controller.dart';
 
+import '../details/product_detail_view.dart';
+
 class ProductCard extends StatefulWidget {
   final Product product;
   const ProductCard({Key? key, required this.product}) : super(key: key);
@@ -43,11 +45,7 @@ class _ProductCardState extends State<ProductCard> {
               : [],
         ),
         child: InkWell(
-          onTap: () {
-            if (MediaQuery.of(context).size.width <= 800) {
-              Get.find<HomeController>().addToCart(widget.product);
-            }
-          },
+          onTap: () => Get.to(() => ProductDetailView(product: widget.product)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -80,23 +78,23 @@ class _ProductCardState extends State<ProductCard> {
                       Container(
                         color: Colors.black.withOpacity(0.4),
                         child: Center(
-                          child:
-                              ElevatedButton(
-                                onPressed: () {
-                                  Get.find<HomeController>().addToCart(
-                                    widget.product,
-                                  );
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFFE50914),
-                                  foregroundColor: Colors.white,
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 24,
-                                    vertical: 12,
-                                  ),
-                                ),
-                                child: const Text('Add to Cart'),
-                              ).animate().scale(
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 24,
+                              vertical: 12,
+                            ),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 2),
+                            ),
+                            child: const Text(
+                              'VIEW DETAILS',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 2,
+                              ),
+                            ),
+                          ).animate().scale(
                                 duration: 200.ms,
                                 curve: Curves.easeOutBack,
                               ),
@@ -110,35 +108,15 @@ class _ProductCardState extends State<ProductCard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: Text(
-                            widget.product.name,
-                            style: GoogleFonts.outfit(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                        if (MediaQuery.of(context).size.width <= 800)
-                          IconButton(
-                            icon: const Icon(
-                              FontAwesomeIcons.circlePlus,
-                              color: Color(0xFFE50914),
-                              size: 24,
-                            ),
-                            onPressed: () {
-                              Get.find<HomeController>().addToCart(
-                                widget.product,
-                              );
-                            },
-                          ),
-                      ],
+                    Text(
+                      widget.product.name,
+                      style: GoogleFonts.outfit(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 8),
                     Text(

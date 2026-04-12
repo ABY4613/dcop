@@ -7,6 +7,8 @@ class Product {
   final bool isFeatured;
   final bool isNewArrival;
   final bool isTrending;
+  final List<String> availableSizes;
+  final List<String> availableColors;
 
   Product({
     required this.id,
@@ -17,5 +19,7 @@ class Product {
     this.isFeatured = false,
     this.isNewArrival = false,
     this.isTrending = false,
+    this.availableSizes = const ['S', 'M', 'L', 'XL', 'XXL'],
+    this.availableColors = const ['Black', 'Off-White', 'Crimson Red'],
   });
 }
