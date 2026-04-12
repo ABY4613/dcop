@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../controllers/home_controller.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import '../cart/cart_view.dart';
+import '../../cart/cart_view.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({Key? key}) : super(key: key);
@@ -65,19 +65,23 @@ class CustomAppbar extends StatelessWidget {
                 return Stack(
                   children: [
                       IconButton(
-                      icon: const Icon(
-                        FontAwesomeIcons.bagShopping,
-                        color: Colors.white,
-                        size: 20,
+                        icon: const Icon(
+                          FontAwesomeIcons.bagShopping,
+                          color: Colors.white,
+                          size: 20,
+                        ),
+                        onPressed: () => Get.to(
+                          () => const CartView(),
+                          transition: Transition.rightToLeftWithFade,
+                          duration: const Duration(milliseconds: 500),
+                        ),
                       ),
-                      onPressed: () => Get.to(() => const CartView()),
-                    ),
-                    if (count > 0)
-                      Positioned(
-                        right: 8,
-                        top: 8,
-                        child:
-                            Container(
+                      if (count > 0)
+                        Positioned(
+                          right: 8,
+                          top: 8,
+                          child: IgnorePointer(
+                            child: Container(
                               padding: const EdgeInsets.all(4),
                               decoration: const BoxDecoration(
                                 color: Color(0xFFE50914),
@@ -92,10 +96,11 @@ class CustomAppbar extends StatelessWidget {
                                 ),
                               ),
                             ).animate().scale(
-                              duration: 300.ms,
-                              curve: Curves.easeOutBack,
-                            ),
-                      ),
+                                  duration: 300.ms,
+                                  curve: Curves.easeOutBack,
+                                ),
+                          ),
+                        ),
                   ],
                 );
               }),
