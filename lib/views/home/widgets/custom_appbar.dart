@@ -106,13 +106,15 @@ class CustomAppbar extends StatelessWidget {
               }),
               if (MediaQuery.of(context).size.width <= 800) ...[
                 const SizedBox(width: 16),
-                IconButton(
-                  icon: const Icon(
-                    FontAwesomeIcons.bars,
-                    color: Colors.white,
-                    size: 20,
+                Builder(
+                  builder: (context) => IconButton(
+                    icon: const Icon(
+                      FontAwesomeIcons.bars,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                    onPressed: () => Scaffold.of(context).openEndDrawer(),
                   ),
-                  onPressed: () {},
                 ),
               ],
             ],

@@ -16,6 +16,7 @@ class HomeView extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.black,
+      endDrawer: _buildDrawer(context),
       body: Obx(() {
         if (controller.isLoading.value) {
           return const AnimatedLoader();
@@ -175,6 +176,69 @@ class HomeView extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildDrawer(BuildContext context) {
+    return Drawer(
+      backgroundColor: const Color(0xFF141414),
+      child: Column(
+        children: [
+          DrawerHeader(
+            decoration: const BoxDecoration(color: Colors.black),
+            child: Center(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'DC',
+                    style: GoogleFonts.outfit(
+                      fontSize: 32,
+                      fontWeight: FontWeight.w900,
+                      color: const Color(0xFFE50914),
+                    ),
+                  ),
+                  Text(
+                    'OP',
+                    style: GoogleFonts.outfit(
+                      fontSize: 32,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          _drawerItem(FontAwesomeIcons.house, 'HOME', () => Get.back()),
+          _drawerItem(FontAwesomeIcons.tag, 'SHOP', () {}),
+          _drawerItem(FontAwesomeIcons.layerGroup, 'COLLECTIONS', () {}),
+          _drawerItem(FontAwesomeIcons.circleInfo, 'ABOUT', () {}),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Text(
+              '© 2026 DCOP',
+              style: GoogleFonts.outfit(color: Colors.white24, fontSize: 12),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _drawerItem(IconData icon, String title, VoidCallback onTap) {
+    return ListTile(
+      leading: Icon(icon, color: Colors.white70, size: 20),
+      title: Text(
+        title,
+        style: GoogleFonts.outfit(
+          color: Colors.white,
+          fontWeight: FontWeight.w600,
+          letterSpacing: 2,
+        ),
+      ),
+      onTap: onTap,
     );
   }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import '../../../models/product.dart';
+import '../../shop/product_list_view.dart';
 import 'product_card.dart';
 
 class FeaturedSection extends StatelessWidget {
@@ -31,7 +32,7 @@ class FeaturedSection extends StatelessWidget {
                 ),
               ).animate().slideX(begin: -0.1, duration: 600.ms).fadeIn(),
               TextButton(
-                onPressed: () {},
+                onPressed: () => Get.to(() => ProductListView(categoryName: title)),
                 style: TextButton.styleFrom(
                   foregroundColor: const Color(0xFFE50914),
                 ),
@@ -69,10 +70,9 @@ class FeaturedSection extends StatelessWidget {
                 itemCount: products.length,
                 itemBuilder: (context, index) {
                   return ProductCard(product: products[index])
-                      .animate(delay: (200 * index).ms)
-                      .fadeIn(duration: 800.ms)
-                      .slideY(begin: 0.5, end: 0, curve: Curves.easeOutBack, duration: 800.ms)
-                      .flipV(begin: -0.5, end: 0, perspective: 1, duration: 800.ms);
+                      .animate(delay: (100 * index).ms)
+                      .slideY(begin: 0.2, end: 0, duration: 400.ms)
+                      .fadeIn();
                 },
               );
             },
