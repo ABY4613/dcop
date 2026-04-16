@@ -28,7 +28,7 @@ class AnimatedLoader extends StatelessWidget {
                   onPlay: (controller) => controller.repeat(reverse: true),
                 )
                 .fadeIn(duration: 800.ms)
-                .shimmer(duration: 1200.ms, color: const Color(0xFFE50914))
+                .shimmer(duration: 1200.ms, color: const Color(0xFFFF2D2D))
                 .scale(
                   begin: const Offset(0.9, 0.9),
                   end: const Offset(1.1, 1.1),
@@ -50,11 +50,11 @@ class AnimatedLoader extends StatelessWidget {
                           width: 50,
                           height: 4,
                           decoration: BoxDecoration(
-                            color: const Color(0xFFE50914),
+                            color: const Color(0xFFFF2D2D),
                             borderRadius: BorderRadius.circular(2),
                             boxShadow: [
                               BoxShadow(
-                                color: const Color(0xFFE50914).withOpacity(0.8),
+                                color: const Color(0xFFFF2D2D).withOpacity(0.8),
                                 blurRadius: 10,
                                 spreadRadius: 2,
                               ),

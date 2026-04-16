@@ -14,109 +14,109 @@ class CustomAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = MediaQuery.of(context).size.width > 800;
+
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-      color: Colors.black.withOpacity(0.8),
+      padding: EdgeInsets.symmetric(
+        horizontal: isDesktop ? 40 : 16,
+        vertical: 16,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.9),
+        border: Border(
+          bottom: BorderSide(color: Colors.white.withOpacity(0.06)),
+        ),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            children: [
-              Text(
-                'DC',
-                style: GoogleFonts.outfit(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w900,
-                  color: const Color(0xFFE50914),
-                ),
-              ).animate().shimmer(duration: 1500.ms, delay: 500.ms),
-              Text(
-                'OP',
-                style: GoogleFonts.outfit(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.white,
-                ),
-              ),
-            ],
+          // Logo
+          Text(
+            'DCOP',
+            style: GoogleFonts.outfit(
+              fontSize: isDesktop ? 26 : 20,
+              fontWeight: FontWeight.w900,
+              color: Colors.white,
+              letterSpacing: 3,
+            ),
           ).animate().slideY(begin: -1, duration: 400.ms).fadeIn(),
-          if (MediaQuery.of(context).size.width > 800)
+
+          // Nav items (desktop)
+          if (isDesktop)
             Row(
               children: [
                 _navItem('HOME'),
-                const SizedBox(width: 32),
-                _navItem('SHOP'),
-                const SizedBox(width: 32),
-                _navItem('COLLECTIONS'),
-                const SizedBox(width: 32),
-                _navItem('ABOUT'),
+                const SizedBox(width: 28),
+                _navItem('STORES'),
+                const SizedBox(width: 28),
+                _navItem('SERVICES'),
+                const SizedBox(width: 28),
+                _navItem('MENS'),
+                const SizedBox(width: 28),
+                _navItem('BLOG'),
               ],
             ).animate().slideY(begin: -1, duration: 500.ms).fadeIn(),
+
+          // Right icons
           Row(
             children: [
               IconButton(
-                icon: const Icon(
-                  FontAwesomeIcons.magnifyingGlass,
-                  color: Colors.white,
-                  size: 20,
-                ),
+                icon: const FaIcon(FontAwesomeIcons.magnifyingGlass,
+                    color: Colors.white, size: 18),
                 onPressed: () {},
+                splashRadius: 20,
               ),
-              const SizedBox(width: 16),
+              const SizedBox(width: 8),
               Obx(() {
                 final count = Get.find<HomeController>().cartCount;
                 return Stack(
                   children: [
-                      IconButton(
-                        icon: const Icon(
-                          FontAwesomeIcons.bagShopping,
-                          color: Colors.white,
-                          size: 20,
-                        ),
-                        onPressed: () => Get.to(
-                          () => const CartView(),
-                          transition: Transition.rightToLeftWithFade,
-                          duration: const Duration(milliseconds: 500),
+                    IconButton(
+                      icon: const FaIcon(FontAwesomeIcons.bagShopping,
+                          color: Colors.white, size: 18),
+                      onPressed: () => Get.to(
+                        () => const CartView(),
+                        transition: Transition.rightToLeftWithFade,
+                        duration: const Duration(milliseconds: 500),
+                      ),
+                      splashRadius: 20,
+                    ),
+                    if (count > 0)
+                      Positioned(
+                        right: 6,
+                        top: 6,
+                        child: IgnorePointer(
+                          child: Container(
+                            padding: const EdgeInsets.all(4),
+                            decoration: const BoxDecoration(
+                              color: Color(0xFFFF2D2D),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Text(
+                              '$count',
+                              style: GoogleFonts.outfit(
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ).animate().scale(
+                                duration: 300.ms,
+                                curve: Curves.easeOutBack,
+                              ),
                         ),
                       ),
-                      if (count > 0)
-                        Positioned(
-                          right: 8,
-                          top: 8,
-                          child: IgnorePointer(
-                            child: Container(
-                              padding: const EdgeInsets.all(4),
-                              decoration: const BoxDecoration(
-                                color: Color(0xFFE50914),
-                                shape: BoxShape.circle,
-                              ),
-                              child: Text(
-                                '$count',
-                                style: GoogleFonts.outfit(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ).animate().scale(
-                                  duration: 300.ms,
-                                  curve: Curves.easeOutBack,
-                                ),
-                          ),
-                        ),
                   ],
                 );
               }),
-              if (MediaQuery.of(context).size.width <= 800) ...[
-                const SizedBox(width: 16),
+              if (!isDesktop) ...[
+                const SizedBox(width: 8),
                 Builder(
                   builder: (context) => IconButton(
-                    icon: const Icon(
-                      FontAwesomeIcons.bars,
-                      color: Colors.white,
-                      size: 20,
-                    ),
+                    icon: const FaIcon(FontAwesomeIcons.bars,
+                        color: Colors.white, size: 18),
                     onPressed: () => Scaffold.of(context).openEndDrawer(),
+                    splashRadius: 20,
                   ),
                 ),
               ],
@@ -130,23 +130,24 @@ class CustomAppbar extends StatelessWidget {
   Widget _navItem(String title) {
     return InkWell(
       onTap: () {
-        if (title == 'ABOUT') {
-          Get.to(() => const AboutView());
-        } else if (title == 'HOME') {
-          Get.offAllNamed('/'); 
-        } else if (title == 'SHOP') {
+        if (title == 'HOME') {
+          Get.offAllNamed('/');
+        } else if (title == 'STORES') {
           Get.to(() => const ShopView());
-        } else if (title == 'COLLECTIONS') {
+        } else if (title == 'SERVICES') {
           Get.to(() => const CollectionsView());
+        } else if (title == 'BLOG') {
+          Get.to(() => const AboutView());
         }
       },
+      hoverColor: Colors.transparent,
       child: Text(
         title,
         style: GoogleFonts.outfit(
           color: Colors.white,
-          fontSize: 14,
-          fontWeight: FontWeight.w600,
-          letterSpacing: 1.5,
+          fontSize: 13,
+          fontWeight: FontWeight.w500,
+          letterSpacing: 1,
         ),
       ),
     );

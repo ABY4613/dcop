@@ -35,7 +35,7 @@ class HomeController extends GetxController {
       'Added to Cart',
       '${product.name} added to your cart.',
       snackPosition: SnackPosition.BOTTOM,
-      backgroundColor: const Color(0xFFE50914),
+      backgroundColor: const Color(0xFFFF2D2D),
       colorText: Colors.white,
       duration: const Duration(seconds: 2),
       margin: const EdgeInsets.all(16),

@@ -41,22 +41,25 @@ class AboutView extends StatelessWidget {
             Text(
               'AESTHETIC / VISION',
               style: GoogleFonts.outfit(
-                color: const Color(0xFFE50914),
+                color: const Color(0xFFFF2D2D),
                 letterSpacing: 8,
                 fontWeight: FontWeight.bold,
               ),
             ).animate().fadeIn().slideY(begin: 0.2),
             const SizedBox(height: 24),
             Text(
-              'REDEFINING\nSTREETWEAR',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.outfit(
-                fontSize: 72,
-                height: 1.1,
-                fontWeight: FontWeight.w900,
-                color: Colors.white,
-              ),
-            ).animate().fadeIn(delay: 200.ms).scale(begin: const Offset(0.9, 0.9)),
+                  'REDEFINING\nSTREETWEAR',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.outfit(
+                    fontSize: 72,
+                    height: 1.1,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.white,
+                  ),
+                )
+                .animate()
+                .fadeIn(delay: 200.ms)
+                .scale(begin: const Offset(0.9, 0.9)),
           ],
         ),
       ),
@@ -95,10 +98,10 @@ class AboutView extends StatelessWidget {
     return Container(
       height: 600,
       decoration: BoxDecoration(
-        border: Border.all(color: const Color(0xFFE50914), width: 2),
+        border: Border.all(color: const Color(0xFFFF2D2D), width: 2),
         image: const DecorationImage(
           image: NetworkImage(
-            'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+            'https://picsum.photos/id/1025/1920/1200',
           ),
           fit: BoxFit.cover,
         ),
@@ -150,11 +153,18 @@ class AboutView extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 16),
       child: Row(
         children: [
-          const Icon(FontAwesomeIcons.circleCheck, color: Color(0xFFE50914), size: 16),
+          const Icon(
+            FontAwesomeIcons.circleCheck,
+            color: Color(0xFFFF2D2D),
+            size: 16,
+          ),
           const SizedBox(width: 16),
           Text(
             text,
-            style: GoogleFonts.outfit(color: Colors.white, fontWeight: FontWeight.w600),
+            style: GoogleFonts.outfit(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ],
       ),
@@ -192,9 +202,21 @@ class AboutView extends StatelessWidget {
             runSpacing: 40,
             alignment: WrapAlignment.center,
             children: [
-              _contactCard(FontAwesomeIcons.instagram, 'INSTAGRAM', '@dcop_official'),
-              _contactCard(FontAwesomeIcons.envelope, 'EMAIL', 'contact@dcop.com'),
-              _contactCard(FontAwesomeIcons.whatsapp, 'WHATSAPP', '+91 98765 43210'),
+              _contactCard(
+                FontAwesomeIcons.instagram,
+                'INSTAGRAM',
+                '@dcop_official',
+              ),
+              _contactCard(
+                FontAwesomeIcons.envelope,
+                'EMAIL',
+                'contact@dcop.com',
+              ),
+              _contactCard(
+                FontAwesomeIcons.whatsapp,
+                'WHATSAPP',
+                '+91 98765 43210',
+              ),
             ],
           ),
         ],
@@ -212,7 +234,7 @@ class AboutView extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Icon(icon, color: const Color(0xFFE50914), size: 32),
+          Icon(icon, color: const Color(0xFFFF2D2D), size: 32),
           const SizedBox(height: 16),
           Text(
             label,

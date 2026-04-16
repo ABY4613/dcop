@@ -22,17 +22,17 @@ class CollectionsView extends StatelessWidget {
                 _buildCollectionItem(
                   'SUMMER 2026',
                   'LIGHTWEIGHT FABRICS / VIBRANT PRINTS',
-                  'https://images.unsplash.com/photo-1523381235312-3a1bc2 building-a362?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+                  'https://picsum.photos/id/1015/1920/1000',
                 ),
                 _buildCollectionItem(
                   'MIDNIGHT DROP',
                   'PITCH BLACK / REFLECTIVE ACCENTS',
-                  'https://images.unsplash.com/photo-1550991152-713ed3 building-5645?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+                  'https://picsum.photos/id/1016/1920/1000',
                 ),
                 _buildCollectionItem(
                   'URBAN CORE',
                   'MINIMALIST DESIGN / MAXIMUM IMPACT',
-                  'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+                  'https://picsum.photos/id/1018/1920/1000',
                 ),
                 const SizedBox(height: 100),
               ],
@@ -53,7 +53,7 @@ class CollectionsView extends StatelessWidget {
           Text(
             'EXPLORE',
             style: GoogleFonts.outfit(
-              color: const Color(0xFFE50914),
+              color: const Color(0xFFFF2D2D),
               letterSpacing: 8,
               fontWeight: FontWeight.bold,
             ),
@@ -104,7 +104,7 @@ class CollectionsView extends StatelessWidget {
                   Text(
                     subtitle,
                     style: GoogleFonts.outfit(
-                      color: const Color(0xFFE50914),
+                      color: const Color(0xFFFF2D2D),
                       letterSpacing: 4,
                       fontSize: 12,
                       fontWeight: FontWeight.bold,

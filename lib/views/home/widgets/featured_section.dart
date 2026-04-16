@@ -37,7 +37,7 @@ class FeaturedSection extends StatelessWidget {
                 onPressed: () =>
                     Get.to(() => ProductListView(categoryName: title)),
                 style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xFFE50914),
+                  foregroundColor: const Color(0xFFFF2D2D),
                 ),
                 child: Text(
                   'VIEW ALL',

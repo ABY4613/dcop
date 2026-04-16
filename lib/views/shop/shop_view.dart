@@ -91,7 +91,7 @@ class ShopView extends StatelessWidget {
           Text(
             'BROWSE OUR',
             style: GoogleFonts.outfit(
-              color: const Color(0xFFE50914),
+              color: const Color(0xFFFF2D2D),
               letterSpacing: 8,
               fontWeight: FontWeight.bold,
             ),

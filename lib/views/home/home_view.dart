@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../about/about_view.dart';
 import '../shop/shop_view.dart';
 import '../collections/collections_view.dart';
-import '../../../controllers/home_controller.dart';
+import '../../controllers/home_controller.dart';
 import '../shared/animated_loader.dart';
 import 'widgets/custom_appbar.dart';
 import 'widgets/hero_section.dart';
@@ -32,61 +32,92 @@ class HomeView extends StatelessWidget {
             SingleChildScrollView(
               child: Column(
                 children: [
+                  // Hero section – full width, directly under fixed header
                   const HeroSection(),
+                  // Featured products
                   FeaturedSection(
                     title: 'FEATURED T-SHIRTS',
                     products: controller.featuredProducts,
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 500,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          'https://images.unsplash.com/photo-1579809939521-17f16bc42ea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
-                        ),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: Container(
-                      color: const Color(0xFFE50914).withOpacity(0.85),
-                      child: Center(
-                        child:
-                            Text(
-                                  'UNLEASH YOUR\nSTYLE',
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontSize: 64,
-                                    fontWeight: FontWeight.w900,
-                                    color: Colors.white,
-                                    letterSpacing: 8,
-                                  ),
-                                )
-                                .animate(onPlay: (c) => c.repeat(reverse: true))
-                                .scale(
-                                  begin: const Offset(1, 1),
-                                  end: const Offset(1.05, 1.05),
-                                  duration: const Duration(seconds: 2),
-                                ),
-                      ),
-                    ),
-                  ),
+                  // Red accent banner
+                  _buildAccentBanner(context),
+                  // Trending
                   FeaturedSection(
                     title: 'TRENDING DESIGNS',
                     products: controller.trendingProducts,
                   ),
+                  // New arrivals
                   FeaturedSection(
                     title: 'NEW ARRIVALS',
                     products: controller.newArrivals,
                   ),
+                  // Footer
                   _buildFooter(context),
                 ],
               ),
             ),
-            const Positioned(top: 0, left: 0, right: 0, child: CustomAppbar()),
+            // Sticky header on top
+            const Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: CustomAppbar(),
+            ),
           ],
         );
       }),
+    );
+  }
+
+  Widget _buildAccentBanner(BuildContext context) {
+    final isDesktop = MediaQuery.of(context).size.width > 900;
+    return Container(
+      width: double.infinity,
+      height: isDesktop ? 400 : 260,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: const NetworkImage(
+            'https://picsum.photos/id/1035/1920/1000',
+          ),
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(
+            Colors.black.withOpacity(0.5),
+            BlendMode.darken,
+          ),
+        ),
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              const Color(0xFFFF2D2D).withOpacity(0.85),
+              const Color(0xFFFF2D2D).withOpacity(0.6),
+            ],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+          ),
+        ),
+        child: Center(
+          child: Text(
+                'UNLEASH YOUR\nSTYLE',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.outfit(
+                  fontSize: isDesktop ? 64 : 40,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.white,
+                  letterSpacing: 8,
+                  height: 1.2,
+                ),
+              )
+              .animate(onPlay: (c) => c.repeat(reverse: true))
+              .scale(
+                begin: const Offset(1, 1),
+                end: const Offset(1.04, 1.04),
+                duration: const Duration(seconds: 3),
+                curve: Curves.easeInOut,
+              ),
+        ),
+      ),
     );
   }
 
@@ -108,7 +139,7 @@ class HomeView extends StatelessWidget {
                   children: [
                     Text(
                       'DCOP',
-                      style: const TextStyle(
+                      style: GoogleFonts.outfit(
                         fontSize: 32,
                         fontWeight: FontWeight.w900,
                         color: Colors.white,
@@ -116,9 +147,9 @@ class HomeView extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    const Text(
+                    Text(
                       'Premium printed T-shirts for the modern streetwear enthusiast. Designed to stand out.',
-                      style: TextStyle(
+                      style: GoogleFonts.outfit(
                         color: Colors.white70,
                         fontSize: 16,
                         height: 1.5,
@@ -133,9 +164,9 @@ class HomeView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'SHOP',
-                      style: TextStyle(
+                      style: GoogleFonts.outfit(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -154,9 +185,9 @@ class HomeView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'SUPPORT',
-                      style: TextStyle(
+                      style: GoogleFonts.outfit(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -175,9 +206,9 @@ class HomeView extends StatelessWidget {
           const SizedBox(height: 80),
           Divider(color: Colors.white.withOpacity(0.1)),
           const SizedBox(height: 32),
-          const Text(
+          Text(
             '© 2026 DCOP. All rights reserved.',
-            style: TextStyle(color: Colors.white54, fontSize: 14),
+            style: GoogleFonts.outfit(color: Colors.white54, fontSize: 14),
           ),
         ],
       ),
@@ -186,39 +217,35 @@ class HomeView extends StatelessWidget {
 
   Widget _buildDrawer(BuildContext context) {
     return Drawer(
-      backgroundColor: const Color(0xFF141414),
+      backgroundColor: const Color(0xFF0A0A0A),
       child: Column(
         children: [
           DrawerHeader(
-            decoration: const BoxDecoration(color: Colors.black),
+            decoration: const BoxDecoration(
+              color: Colors.black,
+              border: Border(
+                bottom: BorderSide(color: Color(0xFF1A1A1A)),
+              ),
+            ),
             child: Center(
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'DC',
-                    style: GoogleFonts.outfit(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w900,
-                      color: const Color(0xFFE50914),
-                    ),
-                  ),
-                  Text(
-                    'OP',
-                    style: GoogleFonts.outfit(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
+              child: Text(
+                'DCOP',
+                style: GoogleFonts.outfit(
+                  fontSize: 28,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.white,
+                  letterSpacing: 4,
+                ),
               ),
             ),
           ),
           _drawerItem(FontAwesomeIcons.house, 'HOME', () => Get.back()),
-          _drawerItem(FontAwesomeIcons.tag, 'SHOP', () => Get.to(() => const ShopView())),
-          _drawerItem(FontAwesomeIcons.layerGroup, 'COLLECTIONS', () => Get.to(() => const CollectionsView())),
-          _drawerItem(FontAwesomeIcons.circleInfo, 'ABOUT', () => Get.to(() => const AboutView())),
+          _drawerItem(FontAwesomeIcons.store, 'STORES',
+              () => Get.to(() => const ShopView())),
+          _drawerItem(FontAwesomeIcons.layerGroup, 'COLLECTIONS',
+              () => Get.to(() => const CollectionsView())),
+          _drawerItem(FontAwesomeIcons.circleInfo, 'ABOUT',
+              () => Get.to(() => const AboutView())),
           const Spacer(),
           Padding(
             padding: const EdgeInsets.all(24.0),
@@ -234,7 +261,7 @@ class HomeView extends StatelessWidget {
 
   Widget _drawerItem(IconData icon, String title, VoidCallback onTap) {
     return ListTile(
-      leading: Icon(icon, color: Colors.white70, size: 20),
+      leading: FaIcon(icon, color: Colors.white38, size: 18),
       title: Text(
         title,
         style: GoogleFonts.outfit(
@@ -252,7 +279,7 @@ class HomeView extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 12),
       child: Text(
         text,
-        style: const TextStyle(color: Colors.white70, fontSize: 14),
+        style: GoogleFonts.outfit(color: Colors.white70, fontSize: 14),
       ),
     );
   }

@@ -30,13 +30,13 @@ class _ProductCardState extends State<ProductCard> {
         decoration: BoxDecoration(
           color: const Color(0xFF141414),
           border: Border.all(
-            color: isHovered ? const Color(0xFFE50914) : Colors.transparent,
+            color: isHovered ? const Color(0xFFFF2D2D) : Colors.transparent,
             width: 2,
           ),
           boxShadow: isHovered
               ? [
                   BoxShadow(
-                    color: const Color(0xFFE50914).withOpacity(0.3),
+                    color: const Color(0xFFFF2D2D).withOpacity(0.3),
                     blurRadius: 20,
                     spreadRadius: 2,
                   ),
@@ -62,7 +62,7 @@ class _ProductCardState extends State<ProductCard> {
                             horizontal: 12,
                             vertical: 6,
                           ),
-                          color: const Color(0xFFE50914),
+                          color: const Color(0xFFFF2D2D),
                           child: Text(
                             'NEW',
                             style: GoogleFonts.outfit(
@@ -125,7 +125,7 @@ class _ProductCardState extends State<ProductCard> {
                     Text(
                       '\$${widget.product.price.toStringAsFixed(2)}',
                       style: GoogleFonts.outfit(
-                        color: const Color(0xFFE50914),
+                        color: const Color(0xFFFF2D2D),
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),

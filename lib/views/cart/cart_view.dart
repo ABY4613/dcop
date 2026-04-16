@@ -89,7 +89,7 @@ class CartView extends StatelessWidget {
           ElevatedButton(
             onPressed: () => Get.back(),
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFFE50914),
+              backgroundColor: const Color(0xFFFF2D2D),
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
             ),
@@ -156,7 +156,7 @@ class CartView extends StatelessWidget {
                 Text(
                   '\$${product.price.toStringAsFixed(2)}',
                   style: GoogleFonts.outfit(
-                    color: const Color(0xFFE50914),
+                    color: const Color(0xFFFF2D2D),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -210,7 +210,7 @@ class CartView extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFE50914),
+                backgroundColor: const Color(0xFFFF2D2D),
                 padding: const EdgeInsets.symmetric(vertical: 24),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
               ),

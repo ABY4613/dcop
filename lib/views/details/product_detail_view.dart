@@ -92,7 +92,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
             children: [
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                color: const Color(0xFFE50914),
+                color: const Color(0xFFFF2D2D),
                 child: Text(
                   'LIMITED EDITION',
                   style: GoogleFonts.outfit(
@@ -120,7 +120,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
             '\$${widget.product.price.toStringAsFixed(2)}',
             style: GoogleFonts.outfit(
               fontSize: 28,
-              color: const Color(0xFFE50914),
+              color: const Color(0xFFFF2D2D),
               fontWeight: FontWeight.bold,
             ),
           ).animate().fadeIn(delay: 300.ms),
@@ -144,8 +144,8 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                   duration: const Duration(milliseconds: 200),
                   padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
                   decoration: BoxDecoration(
-                    color: isSelected ? const Color(0xFFE50914) : Colors.transparent,
-                    border: Border.all(color: isSelected ? const Color(0xFFE50914) : Colors.white24),
+                    color: isSelected ? const Color(0xFFFF2D2D) : Colors.transparent,
+                    border: Border.all(color: isSelected ? const Color(0xFFFF2D2D) : Colors.white24),
                   ),
                   child: Text(
                     size,
@@ -202,7 +202,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                 controller.addToCart(widget.product);
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFE50914),
+                backgroundColor: const Color(0xFFFF2D2D),
                 padding: const EdgeInsets.symmetric(vertical: 28),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
               ),
