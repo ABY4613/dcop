@@ -251,7 +251,7 @@ class HeroSection extends StatelessWidget {
               fit: BoxFit.scaleDown,
               child:
                   Text(
-                        'STRETEAT',
+                        'DCOP.MY',
                         style: GoogleFonts.oswald(
                           fontSize: 180,
                           fontWeight: FontWeight.w900,
@@ -388,14 +388,14 @@ class HeroSection extends StatelessWidget {
         children: [
           Positioned.fill(child: CustomPaint(painter: _HeroBgMobile())),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 76, bottom: 16),
             child: Column(
               children: [
                 const SizedBox(height: 8),
                 FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(
-                        'STRETEAT',
+                        'DCOP.MY',
                         style: GoogleFonts.oswald(
                           fontSize: 110,
                           fontWeight: FontWeight.w900,
